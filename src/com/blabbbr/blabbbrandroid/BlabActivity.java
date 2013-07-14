@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 
-import com.blabbr.blabbrandroid.R;
-
 public class BlabActivity extends Activity {
 
 	static final String TAG = "BlabActivity";
