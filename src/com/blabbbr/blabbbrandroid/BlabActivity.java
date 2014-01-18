@@ -18,6 +18,10 @@ public class BlabActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_blab);
+
+		// start trying to figure out where we are.
+		Locator.locate(getApplicationContext());
+
 		final Button recordButton = (Button) findViewById(R.id.button1);
 		recordButton.setOnClickListener(new View.OnClickListener() {
 			@Override

@@ -13,6 +13,8 @@ public class Recorder {
 	public static int AUDIO_SOURCE = MediaRecorder.AudioSource.CAMCORDER;
 	public static int AUDIO_OUTPUT_FORMAT = MediaRecorder.OutputFormat.THREE_GPP;
 	public static int AUDIO_ENCODER = MediaRecorder.AudioEncoder.AMR_WB;
+	public static float LATITUDE = 0;
+	public static float LONGITUDE = 0;
 
 	private MediaRecorder recorder;
 
@@ -33,6 +35,9 @@ public class Recorder {
 			recorder.setOutputFormat(AUDIO_OUTPUT_FORMAT);
 			recorder.setAudioEncoder(AUDIO_ENCODER);
 			recorder.setOutputFile(fileLocation);
+			if (LATITUDE != 0 && LONGITUDE != 0) {
+				recorder.setLocation(LATITUDE, LONGITUDE);
+			}
 			recorder.prepare();
 			Log.d(TAG, "ready");
 		} catch (Exception e) {
