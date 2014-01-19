@@ -35,6 +35,18 @@ public class BlabActivity extends Activity {
 		Log.d(TAG, filePath);
 		recorder = new Recorder(filePath);
 
+		recorder.setOnReadyCallback(new Runnable() {
+			@Override
+			public void run() {
+				runOnUiThread(new Runnable() {
+					@Override
+					public void run() {
+						recordButton.setBackgroundColor(Color.GREEN);
+					}
+				});
+			}
+		});
+
 		recorder.setOnStartRecordingCallback(new Runnable() {
 			@Override
 			public void run() {
@@ -47,13 +59,15 @@ public class BlabActivity extends Activity {
 			}
 		});
 		recorder.setOnStopRecordingCallback(new Runnable() {
-
 			@Override
 			public void run() {
+				// TODO: Post this instance to the Internet.
+				new Blabbb(recorder, "");
+
 				runOnUiThread(new Runnable() {
 					@Override
 					public void run() {
-						recordButton.setBackgroundColor(Color.GRAY);
+						recordButton.setBackgroundColor(Color.GREEN);
 					}
 				});
 			}

@@ -23,8 +23,7 @@ public class Locator implements LocationListener {
 	@Override
 	public void onLocationChanged(final Location location) {
 		if (location != null) {
-			Recorder.LATITUDE = (float) location.getLatitude();
-			Recorder.LONGITUDE = (float) location.getLongitude();
+			Recorder.LOCATION = location;
 		}
 	}
 
